@@ -34,7 +34,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.facebook.fresco:fresco:2.0.0'
-    implementation 'com.airbnb.android:lottie:3.4.0'
+    implementation 'com.airbnb.android:lottie:3.4.1'
     implementation 'com.mohamadamin:persianmaterialdatetimepicker:1.2.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
