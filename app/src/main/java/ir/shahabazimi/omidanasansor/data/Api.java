@@ -13,11 +13,23 @@ public interface Api {
 
 
     @FormUrlEncoded
-    @POST("request.php")
-    Call<GeneralResponse> SendRequest(
+    @POST("register.php")
+    Call<GeneralResponse> register(
             @Field("name") String name,
             @Field("number") String number,
-            @Field("address") String address);
+            @Field("bday") String bday,
+            @Field("invite") String invite,
+            @Field("reason") String reason);
+
+    @FormUrlEncoded
+    @POST("buy.php")
+    Call<GeneralResponse> buy(
+            @Field("user_id") String userId,
+            @Field("amount") String amount,
+            @Field("wallet") String wallet,
+            @Field("pay") String pay,
+            @Field("title") String title
+    );
 }
 
 

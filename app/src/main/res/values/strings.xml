@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">امیدان آسانسور</string>
+
+
+    <string name="number_digits">0123456789</string>
+    <string name="birthday_digits">0123456789/</string>
+
+    <array name="reason">
+        <item>خرید آسانسور</item>
+        <item>مابغی خدمات</item>
+    </array>
 </resources>

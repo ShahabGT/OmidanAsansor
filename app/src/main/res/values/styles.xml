@@ -1,12 +1,11 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:windowFullscreen">true</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/ActivityCustomAnimation</item>
     </style>
     <style name="DialogAnimation">
 
@@ -17,8 +16,8 @@
 
     <style name="ActivityCustomAnimation" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/enter_left</item>
-        <item name="android:activityOpenExitAnimation">@anim/exit_right</item>
         <item name="android:activityCloseEnterAnimation">@anim/enter_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/exit_right</item>
         <item name="android:activityCloseExitAnimation">@anim/exit_left</item>
     </style>
 </resources>
