@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    app:cardBackgroundColor="@color/light_background"
+    app:cardCornerRadius="22dp"
+    app:cardElevation="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/red"
+            android:padding="6dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/reg_title"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/vazir"
+                android:text="تایید خدمات"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/reg_top_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/reg_title" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/reg_code_title"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:gravity="center"
+                android:hint="کد مشتری"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reg_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="@string/number_digits"
+                    android:fontFamily="@font/vazir"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:padding="16dp"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/reg_code_title"
+                app:layout_constraintLeft_toLeftOf="@+id/reg_code_title"
+                app:layout_constraintRight_toRightOf="@+id/reg_code_title"
+                app:layout_constraintTop_toTopOf="@+id/reg_code_title" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/reg_name_title"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:gravity="center"
+                android:hint="نام و نام خانوادگی"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/reg_code_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reg_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/vazir"
+                    android:inputType="text"
+                    android:padding="16dp"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/reg_name_title"
+                app:layout_constraintLeft_toLeftOf="@+id/reg_name_title"
+                app:layout_constraintRight_toRightOf="@+id/reg_name_title"
+                app:layout_constraintTop_toTopOf="@+id/reg_name_title" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/reg_amount_title"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:gravity="center"
+                android:hint="مبلغ کل"
+                app:layout_constraintLeft_toRightOf="@id/reg_amount_title2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/reg_name_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reg_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/vazir"
+                    android:inputType="text"
+                    android:padding="16dp"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/reg_amount_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/vazir"
+                android:text="تومان"
+                app:layout_constraintBottom_toBottomOf="@+id/reg_amount_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/reg_amount_title" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/reg_amount_title"
+                app:layout_constraintLeft_toLeftOf="@+id/reg_amount_title"
+                app:layout_constraintRight_toRightOf="@+id/reg_amount_title"
+                app:layout_constraintTop_toTopOf="@+id/reg_amount_title" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/reg_wallet_title"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:gravity="center"
+                android:hint="مبلغ کیف پول"
+                app:layout_constraintLeft_toRightOf="@+id/reg_wallet_title2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/reg_amount_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reg_wallet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/vazir"
+                    android:inputType="text"
+                    android:padding="16dp"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/reg_wallet_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/vazir"
+                android:text="تومان"
+                app:layout_constraintBottom_toBottomOf="@+id/reg_wallet_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/reg_wallet_title" />
+
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/reg_wallet_title"
+                app:layout_constraintLeft_toLeftOf="@+id/reg_wallet_title"
+                app:layout_constraintRight_toRightOf="@+id/reg_wallet_title"
+                app:layout_constraintTop_toTopOf="@+id/reg_wallet_title" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/reg_use_title"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:gravity="center"
+                android:hint="مبلغ مورد استفاده از کیف پول"
+                app:layout_constraintLeft_toRightOf="@+id/reg_use_title2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/reg_wallet_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reg_use"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="@string/number_digits"
+                    android:fontFamily="@font/vazir"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:padding="16dp"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/reg_use_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:fontFamily="@font/vazir"
+                android:text="تومان"
+                app:layout_constraintBottom_toBottomOf="@+id/reg_use_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/reg_use_title" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/reg_total_title"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:gravity="center"
+                android:hint="مبلغ نهایی"
+                app:layout_constraintLeft_toRightOf="@+id/reg_total_title2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/reg_use_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reg_total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="@string/number_digits"
+                    android:fontFamily="@font/vazir"
+                    android:inputType="number"
+                    android:padding="16dp"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/reg_total_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/vazir"
+                android:text="تومان"
+                app:layout_constraintBottom_toBottomOf="@+id/reg_total_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/reg_total_title" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/reg_total_title"
+                app:layout_constraintLeft_toLeftOf="@+id/reg_total_title"
+                app:layout_constraintRight_toRightOf="@+id/reg_total_title"
+                app:layout_constraintTop_toTopOf="@+id/reg_total_title" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/reg_reg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:fontFamily="@font/vazir"
+                android:text="ثبت"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/reg_cancel"
+                app:layout_constraintTop_toBottomOf="@+id/reg_total_title" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/reg_cancel"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:fontFamily="@font/vazir"
+                android:text="بستن"
+                app:layout_constraintLeft_toRightOf="@id/reg_reg"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reg_total_title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

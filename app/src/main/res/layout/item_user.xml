@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:orientation="vertical"
+    app:cardBackgroundColor="@color/light_background"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/detail_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/vector_person"
+            android:tint="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detail_name"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/vazir"
+            android:text="نام: "
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/detail_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detail_number"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/vazir"
+            android:text="شماره تلفن: "
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/detail_icon"
+            app:layout_constraintTop_toBottomOf="@id/detail_name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detail_code"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/vazir"
+            android:text="شماره تلفن: "
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/detail_icon"
+            app:layout_constraintTop_toBottomOf="@id/detail_number" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detail_address"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/vazir"
+            android:text="آدرس: "
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/detail_icon"
+            app:layout_constraintTop_toBottomOf="@id/detail_code" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detail_stat"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/vazir"
+            android:text="وضعیت فعلی: "
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/detail_icon"
+            app:layout_constraintTop_toBottomOf="@id/detail_address" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detail_point"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/vazir"
+            android:text="وضعیت فعلی: "
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/detail_icon"
+            app:layout_constraintTop_toBottomOf="@id/detail_stat" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detail_wallet"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/vazir"
+            android:text="وضعیت فعلی: "
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/detail_icon"
+            app:layout_constraintTop_toBottomOf="@id/detail_point" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detail_date"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/vazir"
+            android:text="تاریخ ثبت: "
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/detail_icon"
+            app:layout_constraintTop_toBottomOf="@id/detail_wallet" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detail_newstat_title"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/vazir"
+            android:text="تغییر امتیاز کاربر به: "
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_date" />
+
+
+        <EditText
+            android:id="@+id/detail_spinner"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/edit_shape"
+            android:digits="@string/number_digits"
+            android:fontFamily="@font/vazir"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="6dp"
+            android:singleLine="true"
+            android:text="0"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_newstat_title"
+            app:layout_constraintLeft_toRightOf="@+id/detail_check"
+            app:layout_constraintRight_toLeftOf="@+id/detail_newstat_title"
+            app:layout_constraintTop_toTopOf="@+id/detail_newstat_title" />
+
+
+        <ImageView
+            android:id="@+id/detail_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:soundEffectsEnabled="true"
+            android:src="@drawable/vector_check"
+            android:tint="@android:color/holo_green_dark"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_spinner"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/detail_spinner" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

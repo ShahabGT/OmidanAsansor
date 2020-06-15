@@ -15,6 +15,11 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activities.UsersActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".activities.DetailsActivity" />
+        <activity android:name=".activities.StatsActivity" />
+        <activity android:name=".activities.BuyActivity" />
         <activity android:name=".activities.SettingActivity" />
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
