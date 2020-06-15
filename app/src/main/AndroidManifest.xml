@@ -15,12 +15,19 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.UsersActivity"
+        <activity android:name=".activities.SettingsActivity"
             android:windowSoftInputMode="stateAlwaysHidden"/>
-        <activity android:name=".activities.DetailsActivity" />
-        <activity android:name=".activities.StatsActivity" />
-        <activity android:name=".activities.BuyActivity" />
-        <activity android:name=".activities.SettingActivity" />
+        <activity
+            android:name=".activities.UsersActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".activities.DetailsActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".activities.StatsActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".activities.BuyActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".activities.SettingActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +35,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
     </application>
 
 </manifest>

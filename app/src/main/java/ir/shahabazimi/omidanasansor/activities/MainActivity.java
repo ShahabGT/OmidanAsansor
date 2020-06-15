@@ -44,5 +44,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.main_user).setOnClickListener(v->{
             startActivity(new Intent(MainActivity.this,UsersActivity.class));
         });
+        findViewById(R.id.main_setting).setOnClickListener(v->{
+            startActivity(new Intent(MainActivity.this,SettingsActivity.class));
+        });
     }
 }
