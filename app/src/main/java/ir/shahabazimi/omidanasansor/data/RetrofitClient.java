@@ -18,15 +18,11 @@ public class RetrofitClient {
 
     private RetrofitClient(){
         List<CipherSuite> cipherSuites = ConnectionSpec.MODERN_TLS.cipherSuites();
+        assert  cipherSuites!=null;
         if (!cipherSuites.contains(CipherSuite.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA)) {
             cipherSuites = new ArrayList(cipherSuites);
             cipherSuites.add(CipherSuite.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA);
         }
-        final ConnectionSpec spec = new ConnectionSpec.Builder(ConnectionSpec.MODERN_TLS)
-                .cipherSuites(cipherSuites.toArray(new CipherSuite[0]))
-                .build();
-
-
 
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectionSpecs(Arrays.asList(ConnectionSpec.MODERN_TLS, ConnectionSpec.CLEARTEXT))

@@ -6,18 +6,18 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowAnimationStyle">@style/ActivityCustomAnimation</item>
+
     </style>
     <style name="DialogAnimation">
-
         <item name="android:windowEnterAnimation">@anim/fadein</item>
         <item name="android:windowExitAnimation">@anim/fadeout</item>
     </style>
 
 
     <style name="ActivityCustomAnimation" parent="@android:style/Animation.Activity">
-        <item name="android:activityOpenEnterAnimation">@anim/enter_left</item>
-        <item name="android:activityCloseEnterAnimation">@anim/enter_right</item>
-        <item name="android:activityOpenExitAnimation">@anim/exit_right</item>
-        <item name="android:activityCloseExitAnimation">@anim/exit_left</item>
+        <item name="android:activityOpenEnterAnimation">@anim/fadein</item>
+        <item name="android:activityOpenExitAnimation">@anim/fadeout</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fadein</item>
+        <item name="android:activityCloseExitAnimation">@anim/fadeout</item>
     </style>
 </resources>

@@ -22,9 +22,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.main_setting).setOnClickListener(v->{
-            startActivity(new Intent(MainActivity.this,SettingActivity.class));
-        });
         findViewById(R.id.main_reg).setOnClickListener(v->{
             RegisterDialog dialog = new RegisterDialog(MainActivity.this);
             dialog.setCanceledOnTouchOutside(true);
@@ -35,17 +32,9 @@ public class MainActivity extends AppCompatActivity {
             Window window = dialog.getWindow();
             window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         });
-        findViewById(R.id.main_buy).setOnClickListener(v->{
-            startActivity(new Intent(MainActivity.this,BuyActivity.class));
-        });
-        findViewById(R.id.main_stat).setOnClickListener(v->{
-            startActivity(new Intent(MainActivity.this,StatsActivity.class));
-        });
-        findViewById(R.id.main_user).setOnClickListener(v->{
-            startActivity(new Intent(MainActivity.this,UsersActivity.class));
-        });
-        findViewById(R.id.main_setting).setOnClickListener(v->{
-            startActivity(new Intent(MainActivity.this,SettingsActivity.class));
-        });
+        findViewById(R.id.main_buy).setOnClickListener(v-> startActivity(new Intent(MainActivity.this,BuyActivity.class)));
+        findViewById(R.id.main_stat).setOnClickListener(v-> startActivity(new Intent(MainActivity.this,StatsActivity.class)));
+        findViewById(R.id.main_user).setOnClickListener(v-> startActivity(new Intent(MainActivity.this,UsersActivity.class)));
+        findViewById(R.id.main_setting).setOnClickListener(v-> startActivity(new Intent(MainActivity.this,SettingsActivity.class)));
     }
 }
