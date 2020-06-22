@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import ir.shahabazimi.omidanasansor.classes.Utils;
 public class ConfirmDialog extends Dialog {
     private Context context;
     private TextInputEditText name, code, amount, wallet, walletUse, total;
+    private View amountView,walletView;
 
     private MaterialButton register, cancel;
 
@@ -25,17 +27,19 @@ public class ConfirmDialog extends Dialog {
     private int myAmount;
     private String myName;
     private String myCode;
+    private String myReason;
 
     private ConfirmInterface confirmInterface;
 
 
-    public ConfirmDialog(@NonNull Context context, String myCode, String myName, String myWallet, String myAmount, ConfirmInterface confirmInterface) {
+    public ConfirmDialog(@NonNull Context context, String myCode, String myName, String myWallet, String myAmount,String reason, ConfirmInterface confirmInterface) {
         super(context);
         this.context = context;
         this.myWallet = Integer.parseInt(myWallet);
         this.myAmount = Integer.parseInt(myAmount);
         this.myName = myName;
         this.myCode = myCode;
+        this.myReason = reason;
         this.confirmInterface = confirmInterface;
 
     }
@@ -54,27 +58,42 @@ public class ConfirmDialog extends Dialog {
         code = findViewById(R.id.reg_code);
         code.setText(myCode);
         amount = findViewById(R.id.reg_amount);
-        amount.setText(Utils.moneySeparator(String.valueOf(myAmount)));
         wallet = findViewById(R.id.reg_wallet);
-        wallet.setText(Utils.moneySeparator(String.valueOf(myWallet)));
         walletUse = findViewById(R.id.reg_use);
         total = findViewById(R.id.reg_total);
         total.setText(Utils.moneySeparator(String.valueOf(myAmount)));
         cancel = findViewById(R.id.reg_cancel);
         register = findViewById(R.id.reg_reg);
+        amountView = findViewById(R.id.reg_amount_title2);
+        walletView = findViewById(R.id.reg_wallet_title2);
 
-
-
-        if (myAmount > myWallet) {
-            total.setText(Utils.moneySeparator(String.valueOf(myAmount - myWallet)));
-            walletUse.setText(Utils.moneySeparator(String.valueOf(myWallet)));
-        }else if(myAmount==myWallet){
-            walletUse.setText(Utils.moneySeparator(String.valueOf(0)));
-            total.setText(Utils.moneySeparator(String.valueOf(0)));
+        if(myReason.equals("1")){
+            amount.setText(Utils.moneySeparator(String.valueOf(myAmount)));
+            wallet.setText(Utils.moneySeparator(String.valueOf(myWallet)));
+            if (myAmount > myWallet) {
+                total.setText(Utils.moneySeparator(String.valueOf(myAmount - myWallet)));
+                walletUse.setText(Utils.moneySeparator(String.valueOf(myWallet)));
+            }else if(myAmount==myWallet){
+                walletUse.setText(Utils.moneySeparator(String.valueOf(0)));
+                total.setText(Utils.moneySeparator(String.valueOf(0)));
+            }else{
+                walletUse.setText(Utils.moneySeparator(myWallet-myAmount+""));
+                total.setText(Utils.moneySeparator(String.valueOf(0)));
+            }
         }else{
-            walletUse.setText(Utils.moneySeparator(myWallet-myAmount+""));
-            total.setText(Utils.moneySeparator(String.valueOf(0)));
+            amount.setText(Utils.moneySeparator(String.valueOf(0)));
+            amount.setVisibility(View.GONE);
+            amountView.setVisibility(View.GONE);
+            wallet.setText(Utils.moneySeparator(String.valueOf(0)));
+            wallet.setVisibility(View.GONE);
+            walletView.setVisibility(View.GONE);
         }
+
+
+
+
+
+
 
 
 

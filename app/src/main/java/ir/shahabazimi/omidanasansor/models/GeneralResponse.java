@@ -9,6 +9,9 @@ public class GeneralResponse {
     @SerializedName("user_id")
     private String id;
 
+    @SerializedName("user_invite")
+    private String invite;
+
     @SerializedName("user_name")
     private String name;
 
@@ -41,5 +44,9 @@ public class GeneralResponse {
 
     public String getWallet() {
         return wallet;
+    }
+
+    public String getInvite() {
+        return invite;
     }
 }

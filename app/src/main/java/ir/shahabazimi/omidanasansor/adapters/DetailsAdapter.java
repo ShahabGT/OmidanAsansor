@@ -37,7 +37,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
         h.wallet.setText("مبلغ استفاده شده از کیف پول: " + Utils.moneySeparator(model.getBuyWallet())+" تومان");
         h.pay.setText("مبلغ پرداختی: " + Utils.moneySeparator(model.getBuyPay())+" تومان");
         if(model.getBuyTitle().equals("1"))
-            h.type.setText("عنوان فاکتور: خیرید آسانسور");
+            h.type.setText("عنوان فاکتور: خرید آسانسور");
         else
             h.type.setText("عنوان فاکتور: سایر خدمات");
         String date = model.getBuyDate();

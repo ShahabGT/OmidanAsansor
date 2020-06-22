@@ -184,6 +184,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:layout_margin="6dp"
                 android:focusable="false"
                 android:gravity="center"

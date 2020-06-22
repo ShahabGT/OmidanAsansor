@@ -3,6 +3,8 @@ package ir.shahabazimi.omidanasansor.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
@@ -37,11 +39,109 @@ public class SettingsActivity extends AppCompatActivity {
         bday = findViewById(R.id.settings_bday);
         getSettings();
 
+        wallet.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                wallet.removeTextChangedListener(this);
+
+                String value = wallet.getText().toString();
+
+
+                if (!value.equals("")) {
+                    if (value.startsWith("0") && !value.startsWith("0.")) {
+                        wallet.setText("");
+                    }
+
+
+                    String str = wallet.getText().toString().replaceAll(",", "");
+                    wallet.setText(Utils.moneySeparator(str));
+                    wallet.setSelection(wallet.getText().toString().length());
+
+                }
+                wallet.addTextChangedListener(this);
+            }
+        });
+        points.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                points.removeTextChangedListener(this);
+
+                String value = points.getText().toString();
+
+
+                if (!value.equals("")) {
+                    if (value.startsWith("0") && !value.startsWith("0.")) {
+                        points.setText("");
+                    }
+
+
+                    String str = points.getText().toString().replaceAll(",", "");
+                    points.setText(Utils.moneySeparator(str));
+                    points.setSelection(points.getText().toString().length());
+
+                }
+                points.addTextChangedListener(this);
+            }
+        });
+        invite.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                invite.removeTextChangedListener(this);
+
+                String value = invite.getText().toString();
+
+
+                if (!value.equals("")) {
+                    if (value.startsWith("0") && !value.startsWith("0.")) {
+                        invite.setText("");
+                    }
+
+
+                    String str = invite.getText().toString().replaceAll(",", "");
+                    invite.setText(Utils.moneySeparator(str));
+                    invite.setSelection(invite.getText().toString().length());
+
+                }
+                invite.addTextChangedListener(this);
+            }
+        });
+
+
         reg.setOnClickListener(v -> {
             Utils.hideKeyboard(SettingsActivity.this);
             String w = wallet.getText().toString().replace(",","").trim();
-            String p = points.getText().toString();
-            String i = invite.getText().toString();
+            String p = points.getText().toString().replace(",","").trim();
+            String i = invite.getText().toString().replace(",","").trim();
             String b = bday.getText().toString();
 
             if (p.isEmpty() || w.isEmpty()|| i.isEmpty()|| b.isEmpty()) {
@@ -97,8 +197,8 @@ public class SettingsActivity extends AppCompatActivity {
                     public void onResponse(Call<SettingsResponse> call, Response<SettingsResponse> response) {
                         if (response.isSuccessful() && response.body() != null && !response.body().getData().isEmpty()) {
                             wallet.setText(Utils.moneySeparator(response.body().getData().get(0).getTitlesAmount()));
-                            points.setText(response.body().getData().get(1).getTitlesAmount());
-                            invite.setText(response.body().getData().get(2).getTitlesAmount());
+                            points.setText(Utils.moneySeparator(response.body().getData().get(1).getTitlesAmount()));
+                            invite.setText(Utils.moneySeparator(response.body().getData().get(2).getTitlesAmount()));
                             bday.setText(response.body().getData().get(3).getTitlesAmount());
                         } else {
                             Toast.makeText(SettingsActivity.this, "خطا! لطفا دوباره امتحان کنید", Toast.LENGTH_SHORT).show();

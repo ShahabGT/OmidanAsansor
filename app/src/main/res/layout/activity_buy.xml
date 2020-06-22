@@ -111,6 +111,38 @@
                 app:layout_constraintLeft_toLeftOf="@+id/service_name_title"
                 app:layout_constraintRight_toRightOf="@+id/service_name_title"
                 app:layout_constraintTop_toTopOf="@+id/service_name_title" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/service_invite_title"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:gravity="center"
+                android:hint="کد معرف"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/service_name_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/service_invite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/vazir"
+                    android:inputType="text"
+                    android:padding="16dp"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:focusable="true"
+                android:clickable="true"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/service_invite_title"
+                app:layout_constraintLeft_toLeftOf="@+id/service_invite_title"
+                app:layout_constraintRight_toRightOf="@+id/service_invite_title"
+                app:layout_constraintTop_toTopOf="@+id/service_invite_title" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/service_type_title"
@@ -147,7 +179,7 @@
                 android:hint="نوع خرید"
                 app:layout_constraintLeft_toRightOf="@+id/service_reason"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/service_name_title">
+                app:layout_constraintTop_toBottomOf="@id/service_invite_title">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/service_length"
@@ -216,6 +248,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:fontFamily="@font/vazir"
+                    android:imeOptions="actionDone"
                     android:inputType="number"
                     android:padding="16dp"
                     android:singleLine="true" />

@@ -32,7 +32,8 @@ public interface Api {
             @Field("amount") String amount,
             @Field("wallet") String wallet,
             @Field("pay") String pay,
-            @Field("title") String title
+            @Field("title") String title,
+            @Field("invite") String invite
     );
 
     @FormUrlEncoded

@@ -130,7 +130,7 @@ public class RegisterDialog extends Dialog implements DatePickerDialog.OnDateSet
         setCancelable(false);
 
         RetrofitClient.getInstance().getApi()
-                .register(name,phone,birthday,invite,reason)
+                .register(name,phone,birthday,invite,"1")
                 .enqueue(new Callback<GeneralResponse>() {
                     @Override
                     public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {

@@ -1,7 +1,5 @@
 package ir.shahabazimi.omidanasansor.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -16,11 +14,12 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import ir.shahabazimi.omidanasansor.R;
-import ir.shahabazimi.omidanasansor.classes.ConfirmInterface;
 import ir.shahabazimi.omidanasansor.classes.Utils;
 import ir.shahabazimi.omidanasansor.data.RetrofitClient;
 import ir.shahabazimi.omidanasansor.dialogs.ConfirmDialog;
@@ -31,11 +30,12 @@ import retrofit2.Response;
 
 public class BuyActivity extends AppCompatActivity {
 
-    private TextInputEditText search,name,price;
+    private TextInputEditText search, name, price, invite;
     private MaterialButton reg;
     private String cName = "";
     private String cNumber = "";
     private String cId = "";
+    private String cInvite = "";
     private String cWallet = "";
     private String cCode = "";
     private LinearLayout loading;
@@ -50,7 +50,7 @@ public class BuyActivity extends AppCompatActivity {
 
     }
 
-    private void init(){
+    private void init() {
         reason = findViewById(R.id.service_reason);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.reason, android.R.layout.simple_spinner_item);
@@ -58,6 +58,7 @@ public class BuyActivity extends AppCompatActivity {
         reason.setAdapter(adapter);
         search = findViewById(R.id.service_code);
         name = findViewById(R.id.service_name);
+        invite = findViewById(R.id.service_invite);
         price = findViewById(R.id.service_price);
         reg = findViewById(R.id.service_reg);
         loading = findViewById(R.id.service_loading);
@@ -65,12 +66,12 @@ public class BuyActivity extends AppCompatActivity {
         onClicks();
     }
 
-    private void onClicks(){
+    private void onClicks() {
 
-        reg.setOnClickListener(w->{
+        reg.setOnClickListener(w -> {
             Utils.hideKeyboard(BuyActivity.this);
-            String p = price.getText().toString().trim().replace(",","");
-            String t = reason.getSelectedItemPosition()+1+"";
+            String p = price.getText().toString().trim().replace(",", "");
+            String t = reason.getSelectedItemPosition() + 1 + "";
 
             if (p.isEmpty() || t.isEmpty()) {
 
@@ -80,15 +81,12 @@ public class BuyActivity extends AppCompatActivity {
 
             } else {
 
-                ConfirmDialog dialog = new ConfirmDialog(BuyActivity.this, cCode, cName, cWallet, p, new ConfirmInterface() {
-                    @Override
-                    public void onClick(String amount, String wallet, String pay) {
-                        if(Utils.checkInternet(BuyActivity.this))
-                            buy(amount, wallet, pay,t);
-                        else
-                            Toast.makeText(BuyActivity.this, "لطفا دسترسی به اینترنت را بررسی کنید!", Toast.LENGTH_SHORT).show();
+                ConfirmDialog dialog = new ConfirmDialog(BuyActivity.this, cCode, cName, cWallet, p, t, (amount, wallet, pay) -> {
+                    if (Utils.checkInternet(BuyActivity.this))
+                        buy(amount, wallet, pay, t);
+                    else
+                        Toast.makeText(BuyActivity.this, "لطفا دسترسی به اینترنت را بررسی کنید!", Toast.LENGTH_SHORT).show();
 
-                    }
                 });
                 dialog.setCanceledOnTouchOutside(true);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -147,11 +145,13 @@ public class BuyActivity extends AppCompatActivity {
                     searchCode(s.toString());
                 } else {
                     cName = "";
+                    cInvite = "";
                     cNumber = "";
                     cId = "";
                     cWallet = "";
                     cCode = "";
                     name.setText("");
+                    invite.setText("");
 
                 }
             }
@@ -163,11 +163,13 @@ public class BuyActivity extends AppCompatActivity {
 
                 } else {
                     cName = "";
+                    cInvite = "";
                     cNumber = "";
                     cId = "";
                     cWallet = "";
                     cCode = "";
                     name.setText("");
+                    invite.setText("");
 
                 }
             }
@@ -178,6 +180,7 @@ public class BuyActivity extends AppCompatActivity {
         Utils.hideKeyboard(BuyActivity.this);
 
         cName = "";
+        cInvite = "";
         cNumber = "";
         cId = "";
         cWallet = "";
@@ -189,15 +192,18 @@ public class BuyActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
                         if (response.isSuccessful() && response.body() != null) {
-                            if(response.body().getMessage().equals("success")) {
+                            if (response.body().getMessage().equals("success")) {
                                 cName = response.body().getName();
+                                if (response.body().getInvite() != null)
+                                    cInvite = response.body().getInvite();
                                 cId = response.body().getId();
                                 cNumber = response.body().getNumber();
                                 cWallet = response.body().getWallet();
                                 cCode = code;
                                 name.setText(cName);
+                                invite.setText(cInvite);
 
-                            }else if(response.body().getMessage().equals("empty")){
+                            } else if (response.body().getMessage().equals("empty")) {
                                 name.setText("کاربر وجود ندارد");
 
                             }
@@ -211,25 +217,28 @@ public class BuyActivity extends AppCompatActivity {
                 });
     }
 
-    private void buy(String total,String wallet,String pay,String title){
+    private void buy(String total, String wallet, String pay, String title) {
+        if (!cInvite.equals(invite.getText().toString())) {
+            cInvite = invite.getText().toString();
+        }
         loading.setVisibility(View.VISIBLE);
         RetrofitClient.getInstance().getApi()
-                .buy(cId,total,wallet,pay,title)
+                .buy(cId, total, wallet, pay, title, cInvite)
                 .enqueue(new Callback<GeneralResponse>() {
                     @Override
                     public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
-                        if(response.isSuccessful() && response.body()!=null){
-                            loading.setVisibility(View.GONE);
+                        loading.setVisibility(View.GONE);
+                        if (response.isSuccessful() && response.body() != null) {
 
-                            if(response.body().getMessage().equals("success")){
+                            if (response.body().getMessage().equals("success")) {
                                 Toast.makeText(BuyActivity.this, "با موفیقت ثبت شد!", Toast.LENGTH_SHORT).show();
                                 onBackPressed();
-                            }else{
+                            } else {
                                 Toast.makeText(BuyActivity.this, "خطا! لطفا دوباره امتحان کنید", Toast.LENGTH_SHORT).show();
                             }
 
 
-                        }else{
+                        } else {
                             Toast.makeText(BuyActivity.this, "خطا! لطفا دوباره امتحان کنید", Toast.LENGTH_SHORT).show();
 
                         }
@@ -243,8 +252,6 @@ public class BuyActivity extends AppCompatActivity {
 
                     }
                 });
-
-
 
 
     }
