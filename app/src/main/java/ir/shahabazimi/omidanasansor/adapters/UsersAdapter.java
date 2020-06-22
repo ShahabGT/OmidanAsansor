@@ -10,15 +10,12 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.textview.MaterialTextView;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import ir.shahabazimi.omidanasansor.R;
 import ir.shahabazimi.omidanasansor.classes.DateConverter;
 import ir.shahabazimi.omidanasansor.classes.Utils;
@@ -55,9 +52,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         } else {
             text = text.toLowerCase();
             for (TrackingModel m : data) {
-                if (m.getUserCode().contains(text)
-                        || m.getUserName().contains(text)
-                        || m.getUserNumber().contains(text)) {
+                if (m.getUserCode().toLowerCase().contains(text)
+                        || m.getUserName().toLowerCase().contains(text)
+                        || m.getUserNumber().toLowerCase().contains(text)) {
                     filter.add(m);
                 }
             }
@@ -116,6 +113,17 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
             }
 
         });
+        h.itemView.setOnClickListener(v->{
+            if(h.more.getVisibility()==View.VISIBLE) {
+                h.more.setVisibility(View.GONE);
+                h.moreIcon.setImageResource(R.drawable.vector_down);
+            }else {
+                h.more.setVisibility(View.VISIBLE);
+                h.moreIcon.setImageResource(R.drawable.vector_up);
+            }
+
+
+        });
 
 
     }
@@ -150,7 +158,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
 
         private MaterialTextView name, number, address, stat, date, wallet, point, code;
         private EditText spinner;
-        private ImageView check;
+        private ImageView check,moreIcon;
+        private ConstraintLayout more;
 
         public ViewHolder(@NonNull View v) {
             super(v);
@@ -163,6 +172,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
             wallet = v.findViewById(R.id.detail_wallet);
             point = v.findViewById(R.id.detail_point);
             code = v.findViewById(R.id.detail_code);
+            more = v.findViewById(R.id.detail_more);
+            moreIcon = v.findViewById(R.id.detail_icon_more);
 
             spinner = v.findViewById(R.id.detail_spinner);
         }
