@@ -24,6 +24,9 @@ public class TrackingModel {
     @SerializedName("point_amount")
     private String pointAmount;
 
+    @SerializedName("buy_id")
+    private String buyId;
+
     @SerializedName("user_bday")
     private String userBday;
 
@@ -93,5 +96,9 @@ public class TrackingModel {
 
     public String getUserReason() {
         return userReason;
+    }
+
+    public String getBuyId() {
+        return buyId;
     }
 }
