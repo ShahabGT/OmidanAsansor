@@ -37,7 +37,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
     private List<TrackingModel> filter;
 
     public UsersAdapter(Context context, List<TrackingModel> data) {
-        setHasStableIds(true);
         filter = new ArrayList<>();
         this.data = data;
         filter.addAll(data);
@@ -136,10 +135,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
             String p = h.spinner.getText().toString();
 
 
-            if (!p.isEmpty()) {
-                if (!p.equals(model.getPointAmount()))
+            if (!p.isEmpty() && !p.equals(model.getPointAmount())) {
                     updatePoints(model.getUserId(), p, position);
-
             }
 
         });
@@ -171,7 +168,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
                     public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
                         if (response.isSuccessful() && response.body() != null && response.body().getMessage().equals("success")) {
                             Toast.makeText(context, "با موفقیت ثبت شد", Toast.LENGTH_SHORT).show();
-                            data.get(row).setPointAmount(point);
+                            filter.get(row).setPointAmount(point);
                             notifyItemChanged(row);
                         }
                     }

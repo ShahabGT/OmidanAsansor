@@ -26,7 +26,7 @@ public class Utils {
                     activity.getSystemService(Context.INPUT_METHOD_SERVICE);
             inputManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(),
                     InputMethodManager.HIDE_NOT_ALWAYS);
-        } finally {
+        } catch (Exception e){
 
         }
     }

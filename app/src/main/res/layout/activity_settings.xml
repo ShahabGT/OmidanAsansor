@@ -68,7 +68,6 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/settings_wallet_title2"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -103,7 +102,6 @@
                     app:layout_constraintBottom_toBottomOf="@+id/settings_wallet_title2"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/settings_wallet_title2" />
-
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/settings_points_title2"
                     style="@style/TextAppearance.AppCompat.Medium"
@@ -142,7 +140,6 @@
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/settings_point_title3"
                     android:layout_width="wrap_content"
@@ -166,7 +163,6 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/settings_point_title" />
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/settings_invite_title"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -191,6 +187,7 @@
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/settings_invite_title3"
                     android:layout_width="wrap_content"
@@ -242,6 +239,130 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/settings_limit1_title2"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/vazir"
+                    android:padding="8dp"
+                    android:text="میزان امتیاز حد نصاب اول"
+                    android:textColor="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_bday_title" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/settings_limit1_title"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:gravity="center"
+                    android:hint="امتیاز مورد نظر"
+                    android:nextFocusDown="@id/service_type"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/settings_limit1_title2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/settings_limit1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="@string/number_digits"
+                        android:fontFamily="@font/vazir"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:padding="16dp"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/settings_limit2_title2"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/vazir"
+                    android:padding="8dp"
+                    android:text="میزان امتیاز حد نصاب دوم"
+                    android:textColor="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_limit1_title" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/settings_limit2_title"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:gravity="center"
+                    android:hint="امتیاز مورد نظر"
+                    android:nextFocusDown="@id/service_type"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/settings_limit2_title2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/settings_limit2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="@string/number_digits"
+                        android:fontFamily="@font/vazir"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:padding="16dp"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/settings_limit3_title2"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/vazir"
+                    android:padding="8dp"
+                    android:text="میزان امتیاز حد نصاب سوم"
+                    android:textColor="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_limit2_title" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/settings_limit3_title"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:gravity="center"
+                    android:hint="امتیاز مورد نظر"
+                    android:nextFocusDown="@id/service_type"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/settings_limit3_title2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/settings_limit3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="@string/number_digits"
+                        android:fontFamily="@font/vazir"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:padding="16dp"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/settings_reg"
                     android:layout_width="match_parent"
@@ -252,7 +373,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/settings_bday_title" />
+                    app:layout_constraintTop_toBottomOf="@id/settings_limit3_title" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

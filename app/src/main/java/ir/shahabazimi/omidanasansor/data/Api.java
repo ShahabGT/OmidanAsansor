@@ -71,7 +71,10 @@ public interface Api {
             @Field("points") String points,
             @Field("wallet") String wallet,
             @Field("invite") String invite,
-            @Field("bday") String bday
+            @Field("bday") String bday,
+            @Field("limit1") String limit1,
+            @Field("limit2") String limit2,
+            @Field("limit3") String limit3
     );
 }
 

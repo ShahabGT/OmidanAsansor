@@ -21,7 +21,7 @@ import retrofit2.Response;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private TextInputEditText points, wallet,invite,bday;
+    private TextInputEditText points, wallet,invite,bday,limit1,limit2,limit3;
     private MaterialButton reg;
 
     @Override
@@ -37,6 +37,9 @@ public class SettingsActivity extends AppCompatActivity {
         wallet = findViewById(R.id.settings_wallet);
         invite = findViewById(R.id.settings_invite);
         bday = findViewById(R.id.settings_bday);
+        limit1 = findViewById(R.id.settings_limit1);
+        limit2 = findViewById(R.id.settings_limit2);
+        limit3 = findViewById(R.id.settings_limit3);
         getSettings();
 
         wallet.addTextChangedListener(new TextWatcher() {
@@ -143,13 +146,16 @@ public class SettingsActivity extends AppCompatActivity {
             String p = points.getText().toString().replace(",","").trim();
             String i = invite.getText().toString().replace(",","").trim();
             String b = bday.getText().toString();
+            String l1 = limit1.getText().toString();
+            String l2 = limit2.getText().toString();
+            String l3 = limit3.getText().toString();
 
-            if (p.isEmpty() || w.isEmpty()|| i.isEmpty()|| b.isEmpty()) {
+            if (p.isEmpty() || w.isEmpty()|| i.isEmpty()|| b.isEmpty() || l1.isEmpty() || l2.isEmpty() || l3.isEmpty()) {
                 Toast.makeText(this, "لطفا فرم را تکمیل کنید!", Toast.LENGTH_SHORT).show();
 
             } else {
                 if (Utils.checkInternet(SettingsActivity.this))
-                    setSettings(p, w,i,b);
+                    setSettings(p, w,i,b,l1,l2,l3);
                 else
                     Toast.makeText(SettingsActivity.this, "لطفا دسترسی به اینترنت را بررسی کنید!", Toast.LENGTH_SHORT).show();
 
@@ -159,10 +165,10 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-    private void setSettings(String points, String wallet,String invite,String bday) {
+    private void setSettings(String points, String wallet,String invite,String bday, String l1,String l2, String l3) {
         reg.setEnabled(false);
         reg.setText("...");
-        RetrofitClient.getInstance().getApi().SetSettings(points, wallet,invite,bday)
+        RetrofitClient.getInstance().getApi().SetSettings(points, wallet,invite,bday,l1,l2,l3)
                 .enqueue(new Callback<GeneralResponse>() {
                     @Override
                     public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
@@ -200,6 +206,9 @@ public class SettingsActivity extends AppCompatActivity {
                             points.setText(Utils.moneySeparator(response.body().getData().get(1).getTitlesAmount()));
                             invite.setText(Utils.moneySeparator(response.body().getData().get(2).getTitlesAmount()));
                             bday.setText(response.body().getData().get(3).getTitlesAmount());
+                            limit1.setText(response.body().getData().get(4).getTitlesAmount());
+                            limit2.setText(response.body().getData().get(5).getTitlesAmount());
+                            limit3.setText(response.body().getData().get(6).getTitlesAmount());
                         } else {
                             Toast.makeText(SettingsActivity.this, "خطا! لطفا دوباره امتحان کنید", Toast.LENGTH_SHORT).show();
                             onBackPressed();
