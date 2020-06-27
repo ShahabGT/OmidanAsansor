@@ -97,7 +97,8 @@ public class RegisterDialog extends Dialog implements DatePickerDialog.OnDateSet
         register.setOnClickListener(x -> {
             Utils.hideKeyboard(getOwnerActivity());
             String n = name.getText().toString().trim();
-            String c = code.getText().toString().trim();
+         //   String c = code.getText().toString().trim();
+            String c = "";
             String b = bDate.getText().toString().trim();
             String p = phone.getText().toString().replace(" ","");
             String r = reason.getSelectedItemPosition()+1+"";

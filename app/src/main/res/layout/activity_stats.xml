@@ -24,6 +24,7 @@
         android:fontFamily="@font/vazir"
         android:text="آمار و اطلاعات"
         android:textColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/guideline"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
